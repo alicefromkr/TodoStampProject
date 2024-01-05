@@ -8,25 +8,28 @@ import {
   Put,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { User } from './user.entity';
+import { CreateUserDto, UpdateUserDto } from './user.dto';
 
 @Controller('users')
 export class UserController {
   constructor(private userService: UserService) {}
 
   @Post('/create')
-  create(@Body() user: User) {
+  create(@Body() user: CreateUserDto) {
     return this.userService.create(user);
   }
 
   @Get('/:username')
-  async getByEmail(@Param('username') email: string) {
-    return await this.userService.getByUsername(email);
+  async getByUsername(@Param('username') username: string) {
+    return await this.userService.getByUsername(username);
   }
 
   @Put('/:username')
-  async updateByUsername(@Param('username') email: string, @Body() user: User) {
-    return await this.userService.update(email, user);
+  async updateByUsername(
+    @Param('username') username: string,
+    @Body() user: UpdateUserDto,
+  ) {
+    return await this.userService.update(username, user);
   }
 
   @Delete('/:username')

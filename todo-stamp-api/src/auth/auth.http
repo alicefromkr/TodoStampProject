@@ -1,0 +1,15 @@
+### 회원가입
+
+POST http://localhost:3000/auth/register
+content-type: application/json
+
+{
+    "username": "befine324@gmail.com",
+    "name": "seoin jjang",
+    "providerId": "1239123981"
+}
+
+
+### 탈퇴
+# 추후 토큰 인증 추가
+DELETE http://localhost:3000/auth/quit/befine324@gmail.com

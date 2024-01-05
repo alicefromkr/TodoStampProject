@@ -1,13 +1,13 @@
 ### Create 유저 생성
 
-POST http://localhost:3000/users/create
-content-type: application/json
+# POST http://localhost:3000/users/create
+# content-type: application/json
 
-{
-    "username": "befine324@gmail.com",
-    "name": "seoin jjang",
-    "providerId": "109389909314075025261"
-}
+# {
+#     "username": "befine324@gmail.com",
+#     "name": "seoin jjang",
+#     "providerId": "109389909314075025261"
+# }
 
 ### Get 유저 조회
 
@@ -25,4 +25,4 @@ content-type: application/json
 
 ### Delete 유저 삭제
 
-DELETE http://localhost:3000/users/befine324@gmail.com
+# DELETE http://localhost:3000/users/befine324@gmail.com

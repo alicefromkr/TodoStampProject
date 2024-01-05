@@ -22,4 +22,20 @@ export class AuthService {
       );
     }
   }
+
+  async delete(username: string) {
+    const user = await this.userService.getByUsername(username);
+    if (!user) {
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+
+    try {
+      this.userService.delete(username);
+    } catch (error) {
+      throw new HttpException(
+        'Something went wrong',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
 }

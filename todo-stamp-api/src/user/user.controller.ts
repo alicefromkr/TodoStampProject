@@ -1,23 +1,23 @@
 import {
   Body,
   Controller,
-  Delete,
+  // Delete,
   Get,
   Param,
-  Post,
+  // Post,
   Put,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto, UpdateUserDto } from './user.dto';
+import { UpdateUserDto } from './user.dto';
 
 @Controller('users')
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Post('/create')
-  create(@Body() user: CreateUserDto) {
-    return this.userService.create(user);
-  }
+  // @Post('/create')
+  // create(@Body() user: CreateUserDto) {
+  //   return this.userService.create(user);
+  // }
 
   @Get('/:username')
   async getByUsername(@Param('username') username: string) {
@@ -32,8 +32,8 @@ export class UserController {
     return await this.userService.update(username, user);
   }
 
-  @Delete('/:username')
-  async deleteByUsername(@Param('username') username: string) {
-    return await this.userService.delete(username);
-  }
+  // @Delete('/:username')
+  // async deleteByUsername(@Param('username') username: string) {
+  //   return await this.userService.delete(username);
+  // }
 }

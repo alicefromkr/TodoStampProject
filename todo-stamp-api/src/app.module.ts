@@ -8,18 +8,21 @@ import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { Todo } from './todo/todo.entity';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'todo-stamp.sqlite',
-      entities: [User],
+      entities: [User, Todo],
       synchronize: true, // 개발용, 운영에서는 false로 설정 필요
       logging: true,
     }),
     UserModule,
     AuthModule,
+    TodoModule,
     ConfigModule.forRoot(),
   ],
   controllers: [AppController, AuthController],

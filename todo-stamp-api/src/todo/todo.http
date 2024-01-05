@@ -1,0 +1,29 @@
+### Create TODO 생성
+
+POST http://localhost:3000/todo/create
+content-type: application/json
+
+{
+    "title": "seoin jjang",
+    "content": "jjang seoin",
+    "alimjangId": 123
+}
+
+### Get TODO 조회
+
+GET http://localhost:3000/todo/1
+
+
+### Update TODO 업데이트
+
+PUT http://localhost:3000/todo/1
+content-type: application/json
+
+{
+    "title": "[[][]] seoin jjang",
+    "content": "[][][] jjang seoin"
+}
+
+### Delete TODO 삭제
+
+DELETE http://localhost:3000/todo/1

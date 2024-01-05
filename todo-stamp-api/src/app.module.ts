@@ -3,13 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/user.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'todo-stamp.sqlite',
-      entities: [],
+      entities: [User],
       synchronize: true, // 개발용, 운영에서는 false로 설정 필요
       logging: true,
     }),
